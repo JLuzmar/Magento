@@ -8,7 +8,7 @@
  */
 class Icommkt_ContactSync_Model_Observer {
     
-    //Se ejecuta solo cuando se registra; compra como visitante
+    //Se ejecuta cuando se registra; compra como visitante
     function getEmailFromEvent($observer) {
         //revisamos si viene de la compra como visitante o es un nuevo registro
         $event = $observer->getEvent()->getName();
