@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <SilkSoftware_TestModule>
+      <version>0.1.0</version>
+    </SilkSoftware_TestModule>
+  </modules>
+  <global>
+    <models>
+      <meteorifyobserverexample>
+        <class>Observerexample_Model</class>
+      </meteorifyobserverexample>
+    </models>
+    <events>
+      <customer_register_success>
+        <observers>
+          <meteorify_observerexample_model_observer>
+            <class>Meteorify_Observerexample_Model_Observer</class>
+            <method>example</method>
+            <type>singleton</type>
+          </meteorify_observerexample_model_observer>
+        </observers>
+      </customer_register_success>
+      <checkout_submit_all_after>
+        <observers>
+          <meteorify_observerexample_model_observer>
+            <class>Meteorify_Observerexample_Model_Observer</class>
+            <method>example</method>
+            <type>singleton</type>
+          </meteorify_observerexample_model_observer>
+        </observers>
+      </checkout_submit_all_after>
+      <customer_address_save_after>
+        <observers>
+          <meteorify_observerexample_model_observer>
+            <class>Meteorify_Observerexample_Model_Observer</class>
+            <method>onCustomerAddressSaveAfter</method>
+            <type>singleton</type>
+          </meteorify_observerexample_model_observer>
+        </observers>
+      </customer_address_save_after>
+    </events>
+    <helpers>
+      <testmodule>
+        <class>SilkSoftware_TestModule_Helper</class>
+      </testmodule>
+    </helpers>
+	  <blocks>
+	  <testmodule>
+		<class>SilkSoftware_TestModule_Block</class>
+	  </testmodule>
+	</blocks>
+  </global>
+  <admin>
+	<routers>
+	  <testmodule>
+	    <use>admin</use>
+		  <args>
+		    <module>SilkSoftware_TestModule</module>
+		    <frontName>admin_testmodule</frontName>
+		  </args>
+	  </testmodule>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <testmodule module="testmodule">
+		<title>TestModule</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <testmodulebackend module="testmodule">
+			<title>test page</title>
+			<sort_order>0</sort_order>
+			<action>admin_testmodule/adminhtml_testmodulebackend</action>
+		  </testmodulebackend>
+		</children>
+	  </testmodule>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<testmodule translate="title" module="testmodule">
+			  <title>TestModule</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <testmodulebackend translate="title">
+			<title>test page</title>
+		  </testmodulebackend>
+			  </children>
+			</testmodule>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<testmodule>
+		  <file>testmodule.xml</file>
+		</testmodule>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

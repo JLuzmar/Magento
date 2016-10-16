@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Icommkt_EmailExporter extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Icommkt
+ * @package        Icommkt_EmailExporter
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <icommkt_emailexporter translate="title" module="icommkt_emailexporter">
+                                        <title>EmailExporter</title>
+                                    </icommkt_emailexporter>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <icommkt_emailexporter translate="title" module="icommkt_emailexporter">
+                        <title>Icommkt - Email Exporter</title>
+                        <children>
+                            <email translate="title" module="icommkt_emailexporter">
+                                <title>Email</title>
+                                <sort_order>0</sort_order>
+                            </email>
+                        </children>
+                    </icommkt_emailexporter>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <menu>
+        <icommkt_emailexporter translate="title" module="icommkt_emailexporter">
+            <title>Icommkt - Email Exporter</title>
+            <sort_order>85</sort_order>
+            <children>
+                <email translate="title" module="icommkt_emailexporter">
+                    <title>Email</title>
+                    <action>adminhtml/emailexporter_email</action>
+                    <sort_order>0</sort_order>
+                </email>
+            </children>
+        </icommkt_emailexporter>
+    </menu>
+</config>

@@ -1,0 +1,40 @@
+<?php
+/**
+ * ContactSync Design
+ *
+ * @category    Icommkt
+ * @package     Icommkt_ContactSync_Template
+ * @author      Yetzair Luzmar Osorio
+ */
+?>
+<?php
+	$apiKey = Mage::registry('apiKey');
+	$profileKey = Mage::registry('profileKey');
+?>
+<div id="icommktModule">
+    <h1>Contact Sync <span>Icommkt</span> Manager</h1>
+    <form method="POST" action="<?php echo Mage::helper('adminhtml')->getUrl('admin_contactsync/adminhtml_contactsyncbackend/save')?>" id="edit_form">
+        <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" />
+        <div class="form-group">
+            <label for="exampleInputEmail1">API KEY :</label>
+            <input type="text" name="apikey" class="form-control" placeholder="Enter API_KEY" value="<?php echo $apiKey ?>" />
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">PROFILE KEY:</label>
+            <input type="text" name="profilekey" class="form-control" placeholder="Enter PROFILE_KEY" value="<?php echo $profileKey ?>" />
+        </div>
+		<div class="form-group">
+			<button class="btn btn-default" type="submit"><?php if(empty($apiKey)){ echo 'Save'; } else { echo 'Update'; } ?></button>
+		</div>
+		<div class="clearfix"></div>
+	</form>    
+    <select name="Magento_List">
+        <option selected="" value="0">Magento Fields List</option>
+        <option>Prueba</option>
+    </select>
+    <select name="ICOMMKT_List">
+        <option selected="" value="0">ICOMMKT Fields List</option>
+        <option>Prueba</option>
+    </select>
+	<button id="id_Field" title="Add Field" type="button" class="scalable add" onclick="setLocation('http://localhost/magento_one/index.php/admin/catalog_product/new/key/40c6126b9b9b9ac257406a0eab5b4b20/')" style=""><span><span><span>Add Field</span></span></span></button>
+</div>

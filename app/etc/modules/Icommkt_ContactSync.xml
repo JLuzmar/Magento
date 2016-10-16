@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ContactSync extension
+ *
+ * @category    Icommkt
+ * @package     Icommkt_ContactSync
+ * @author      Yetzair Luzmar Osorio
+ */
+-->
+<config>
+  <modules>
+    <Icommkt_ContactSync>
+      <active>true</active>
+      <codePool>community</codePool>
+      <version>0.2.0</version>
+    </Icommkt_ContactSync>
+  </modules>
+</config>

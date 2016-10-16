@@ -1,0 +1,5 @@
+app/code/local/Icommkt/EmailExporter    app/code/local/Icommkt/EmailExporter
+app/design/adminhtml/default/default/layout/icommkt_emailexporter.xml    app/design/adminhtml/default/default/layout/icommkt_emailexporter.xml
+app/design/adminhtml/default/default/template/icommkt_emailexporter    app/design/adminhtml/default/default/template/icommkt_emailexporter
+app/etc/modules/Icommkt_EmailExporter.xml    app/etc/modules/Icommkt_EmailExporter.xml
+app/locale/en_US/Icommkt_EmailExporter.csv    app/locale/en_US/Icommkt_EmailExporter.csv

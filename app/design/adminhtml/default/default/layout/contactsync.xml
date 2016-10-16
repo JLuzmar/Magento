@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ContactSync extension
+ *
+ * @category    Icommkt
+ * @package     Icommkt_ContactSync
+ * @author      Yetzair Luzmar Osorio
+ */
+-->
+<layout version="0.1.0">
+  <contactsync_adminhtml_contactsyncbackend_index>
+    <reference name="head">
+      <action method="addCss">
+        <stylesheet>Icommkt/ContactSync/styles.css</stylesheet>
+      </action>
+    </reference>
+    <reference name="content">
+	  <block type="contactsync/adminhtml_contactsyncbackend" name="contactsyncbackend" template="contactsync/contactsyncbackend.phtml"/>
+	</reference>
+  </contactsync_adminhtml_contactsyncbackend_index>
+</layout>

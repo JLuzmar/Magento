@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+/**
+ * Icommkt_EmailExporter extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Icommkt
+ * @package        Icommkt_Email
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<layout version="0.1.0">
+  <adminhtml_observerexample_index>
+    <update handle="admin_index"/>
+    <reference name="content">
+      <block type="core/template" name="Meteorify_Observerexample" template="observerexample/index.phtml" />
+    </reference>
+  </adminhtml_observerexample_index>
+</layout>

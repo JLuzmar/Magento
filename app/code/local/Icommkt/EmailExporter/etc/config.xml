@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Icommkt_EmailExporter extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Icommkt
+ * @package        Icommkt_EmailExporter
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Icommkt_EmailExporter>
+            <version>1.0.0</version>
+        </Icommkt_EmailExporter>
+    </modules>
+    <global>
+        <resources>
+            <icommkt_emailexporter_setup>
+                <setup>
+                    <module>Icommkt_EmailExporter</module>
+                    <class>Icommkt_EmailExporter_Model_Resource_Setup</class>
+                </setup>
+            </icommkt_emailexporter_setup>
+        </resources>
+        <blocks>
+            <icommkt_emailexporter>
+                <class>Icommkt_EmailExporter_Block</class>
+            </icommkt_emailexporter>
+        </blocks>
+        <helpers>
+            <icommkt_emailexporter>
+                <class>Icommkt_EmailExporter_Helper</class>
+            </icommkt_emailexporter>
+        </helpers>
+        <models>
+            <icommkt_emailexporter>
+                <class>Icommkt_EmailExporter_Model</class>
+                <resourceModel>icommkt_emailexporter_resource</resourceModel>
+            </icommkt_emailexporter>
+            <icommkt_emailexporter_resource>
+                <class>Icommkt_EmailExporter_Model_Resource</class>
+                <entities>
+                    <email>
+                        <table>icommkt_emailexporter_email</table>
+                    </email>
+                    <email_store>
+                        <table>icommkt_emailexporter_email_store</table>
+                    </email_store>
+                </entities>
+            </icommkt_emailexporter_resource>
+        </models>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <icommkt_emailexporter>
+                    <file>icommkt_emailexporter.xml</file>
+                </icommkt_emailexporter>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Icommkt_EmailExporter>
+                    <files>
+                        <default>Icommkt_EmailExporter.csv</default>
+                    </files>
+                </Icommkt_EmailExporter>
+            </modules>
+        </translate>
+        <global_search>
+            <email>
+                <class>icommkt_emailexporter/adminhtml_search_email</class>
+                <acl>icommkt_emailexporter</acl>
+            </email>
+        </global_search>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Icommkt_EmailExporter before="Mage_Adminhtml">Icommkt_EmailExporter_Adminhtml</Icommkt_EmailExporter>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * ContactSync extension
+ *
+ * @category    Icommkt
+ * @package     Icommkt_ContactSync
+ * @author      Yetzair Luzmar Osorio
+ */
+-->
+<config>
+  <modules>
+    <Icommkt_ContactSync>
+      <version>0.1.0</version>
+    </Icommkt_ContactSync>
+  </modules>
+  <global>
+    <models>
+      <contactsync>
+        <class>Icommkt_ContactSync_Model</class>
+        <resourceModel>contactsync_mysql4</resourceModel>
+      </contactsync>
+      <contactsync_mysql4>
+                <class>Icommkt_ContactSync_Model_Mysql4</class>
+                <entities>
+                    <contactsync>
+                        <table>contactsync</table>
+                    </contactsync>
+                </entities>
+      </contactsync_mysql4>
+    </models>
+    <resources>
+      <contactsync_setup>
+          <setup>
+              <module>Icommkt_ContactSync</module>
+          </setup>
+          <connection>
+              <use>core_setup</use>
+          </connection>
+      </contactsync_setup>
+      <contactsync_write>
+          <connection>
+              <use>core_write</use>
+          </connection>
+      </contactsync_write>
+      <contactsync_read>
+          <connection>
+              <use>core_read</use>
+          </connection>
+      </contactsync_read>
+    </resources>
+    <events>
+      <customer_register_success>
+        <observers>
+          <contactsync>
+            <class>contactsync/observer</class>
+            <method>getEmailFromEvent</method>
+            <type>singleton</type>
+          </contactsync>
+      </observers>
+      </customer_register_success>
+      <checkout_submit_all_after>
+        <observers>
+          <contactsync>
+            <class>contactsync/observer</class>
+            <method>getEmailFromEvent</method>
+            <type>singleton</type>
+          </contactsync>       
+      </observers>
+      </checkout_submit_all_after>
+      <customer_address_save_after>
+        <observers>
+          <contactsync>
+            <class>contactsync/observer</class>
+            <method>onCustomerAddressSaveAfter</method>
+            <type>singleton</type>
+          </contactsync>
+      </observers>
+      </customer_address_save_after>
+    </events>
+    <helpers>
+      <contactsync>
+        <class>Icommkt_ContactSync_Helper</class>
+      </contactsync>
+    </helpers>
+	  <blocks>
+	    <contactsync>
+		  <class>Icommkt_ContactSync_Block</class>
+	    </contactsync>
+	  </blocks>
+  </global>
+  <admin>
+	<routers>
+	  <contactsync>
+	    <use>admin</use>
+		<args>
+		  <module>Icommkt_ContactSync</module>
+		  <frontName>admin_contactsync</frontName>
+		</args>
+	  </contactsync>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <contactsync module="contactsync">
+		<title>ContactSync</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <contactsyncbackend module="contactsync">
+			<title>Contact Sync Plugin</title>
+			<sort_order>0</sort_order>
+			<action>admin_contactsync/adminhtml_contactsyncbackend</action>
+		  </contactsyncbackend>
+		</children>
+	  </contactsync>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<contactsync translate="title" module="contactsync">
+			  <title>ContactSync</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <contactsyncbackend translate="title">
+			<title>Contact Sync Plugin</title>
+		  </contactsyncbackend>
+			  </children>
+			</contactsync>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<contactsync>
+		  <file>contactsync.xml</file>
+		</contactsync>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 
+

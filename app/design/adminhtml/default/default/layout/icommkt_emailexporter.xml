@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Icommkt_EmailExporter extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Icommkt
+ * @package        Icommkt_EmailExporter
+ * @copyright      Copyright (c) 2016
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <adminhtml_emailexporter_email_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>icommkt_emailexporter/email</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="icommkt_emailexporter/adminhtml_email" name="email" />
+
+        </reference>
+    </adminhtml_emailexporter_email_index>
+    <adminhtml_emailexporter_email_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="icommkt_emailexporter/adminhtml_email_grid" name="email_grid"/>
+        </block>
+    </adminhtml_emailexporter_email_grid>
+    <!-- Email add/edit action -->
+    <adminhtml_emailexporter_email_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>icommkt_emailexporter/email</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="icommkt_emailexporter/adminhtml_email_edit" name="email_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="icommkt_emailexporter/adminhtml_email_edit_tabs" name="email_tabs"></block>
+        </reference>
+    </adminhtml_emailexporter_email_edit>
+
+</layout>
